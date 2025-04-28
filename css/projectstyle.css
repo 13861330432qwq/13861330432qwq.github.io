@@ -1,0 +1,151 @@
+/* 基础样式 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 20px;
+  }*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 80px;
+}
+
+/* 容器居中 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏样式 */
+nav {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #2c3e50;
+}
+
+
+  /* 游戏按钮 */
+  #restart {
+    margin: 20px auto 20px;
+    display: block;  
+    padding: 8px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #restart:hover {
+    background: #c0392b;
+  }
+  
+
+
+
+  /* 卡片容器 */
+  .cards {
+    justify-content: center;
+    display: block;  
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+  }
+  
+/* 卡片容器 */
+.card {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  perspective: 1000px; /* 3D透视 */
+  cursor: pointer;
+  transform-style: preserve-3d; /* 保持3D空间 */
+}
+
+/* 卡片正反面通用样式 */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 隐藏背面 */
+  border-radius: 5px;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* 卡片背面（默认显示） */
+.card-back {
+    /* 分开写更易读 */
+    background-color: #2c3e50;
+    background-image: url('../picture/G0.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotateY(0deg);
+  }
+
+/* 卡片正面（图片） */
+.card-front {
+  background: #3498db;
+  transform: rotateY(180deg); /* 初始反转 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 翻转动画 */
+.card.flipped .card-back {
+  transform: rotateY(-180deg);
+}
+.card.flipped .card-front {
+  transform: rotateY(0deg);
+}
+
+/* 已匹配的卡片 */
+.card.revealed .card-front {
+  background: #1abc9c;
+}
