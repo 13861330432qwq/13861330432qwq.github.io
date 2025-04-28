@@ -149,3 +149,11 @@ nav a:hover {
 .card.revealed .card-front {
   background: #1abc9c;
 }
+
+
+
+@media (max-width: 768px) {
+    .cards{
+        margin: 2px auto;
+    }
+}
